@@ -8,13 +8,31 @@ public class FP01Exercises {
 		
 		List<Integer> numbers = List.of(12,9,13,4,6,2,4,12,15);
 		printOddNumbersInListFunctional(numbers);
+		printCubesOfOddNumbersInListFunctional(numbers);
 		
 		List<String> courses = List.of("Spring", "Spring Boot", "API", "Microservices",
 				"AWS", "PCF", "Azure", "Docker", "Kubernetes");
 		printAllCoursesInListFunctional(courses);
 		printCoursesInListContainingSpringFunctional(courses);
 		printCoursesInListContainingAtleastFourLetters(courses);
+		printLengthOfAllCoursesInListFunctional(courses);
+	}
+
+	private static void printLengthOfAllCoursesInListFunctional(List<String> courses) {
 		
+		System.out.println("Length of All Courses");
+		courses.stream()
+		.map(course -> course + " -> " + course.length())
+		.forEach(System.out::println);
+	}
+
+	private static void printCubesOfOddNumbersInListFunctional(List<Integer> numbers) {
+		
+		System.out.println("Cubes of Odd Numbers");
+		numbers.stream()
+		.filter(number -> number % 2 != 0)
+		.map(number -> Math.pow(number, 3))
+		.forEach(System.out::println);
 	}
 
 	private static void printCoursesInListContainingAtleastFourLetters(List<String> courses) {
@@ -42,7 +60,7 @@ public class FP01Exercises {
 
 	private static void printOddNumbersInListFunctional(List<Integer> numbers) {
 		
-		System.out.println("Even Numbers");
+		System.out.println("Odd Numbers");
 		numbers.stream()
 		.filter(number -> number % 2 != 0)
 		.forEach(System.out::println);

@@ -9,7 +9,17 @@ public class FP01Functional {
 		List<Integer> numbers = List.of(12,9,13,4,6,2,4,12,15);
 		printAllNumbersInListFunctional(numbers);
 		printEvenNumbersInListFunctional(numbers);
+		printSquaresOfEvenNumbersInListFunctional(numbers);
 		
+	}
+
+	private static void printSquaresOfEvenNumbersInListFunctional(List<Integer> numbers) {
+		
+		System.out.println("Squares of Even Numbers");
+		numbers.stream()
+		.filter(number -> number % 2 == 0)
+		.map(number -> Math.pow(number, 2))
+		.forEach(System.out::println);
 	}
 
 	private static void printEvenNumbersInListFunctional(List<Integer> numbers) {
